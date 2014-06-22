@@ -2,6 +2,8 @@ package com.appmayuda.puente;
 
 import java.util.List;
 
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Context;
 
@@ -30,6 +32,30 @@ public class Puente {
 			return "error "+ e;
 		}
 	
+	}
+	
+	public Usuario loguarse(Usuario usuario,Activity ac){
+		try {
+			String nousuario = "no existe el usuario";
+			AsyncTask_Logueo task = new AsyncTask_Logueo();
+			ClaseGlobalURL global = (ClaseGlobalURL) ac.getApplication();
+			task.setDatos(context, global.getURL_logue());
+			task.execute(usuario);
+			String respuesta = task.get();
+			if (respuesta.equals(nousuario)){
+				return null;
+			}else{
+				JSONObject json = new JSONObject(respuesta);
+				usuario.setCodigo(json.getString("codigo"));
+				
+				return usuario;
+			}
+			
+		}catch (Exception e){
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 	
 	public String marcarComoSolucionado(int numeroTicket){

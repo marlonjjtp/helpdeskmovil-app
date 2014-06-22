@@ -6,11 +6,11 @@ public class Usuario {
 	private String usuario;
 	private String pass;
 	private boolean estado;
-
 	private String tipo_usuario;
 
 	public Usuario() {
 	}
+	
 
 	public boolean isEstado() {
 		return estado;
