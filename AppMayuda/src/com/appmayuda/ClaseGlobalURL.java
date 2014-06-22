@@ -4,11 +4,13 @@ import android.app.Application;
 
 public class ClaseGlobalURL extends Application {
 
-	private String url_logeo = "http://192.168.1.39/proyectoMoviles/android/Alogeuo.php";
-	private String url_;
+	private String url = "http://192.168.1.39";
+	private String url_logeo = "/proyectoMoviles/android/Alogeuo.php";
+	
 	
 	public String getURL_logue(){
-		return this.url_logeo;
+		return url+url_logeo;
 	}
+	
 	
 }
