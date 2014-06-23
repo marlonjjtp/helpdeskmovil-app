@@ -2,6 +2,9 @@ package com.appmayuda.objetos;
 
 public class Usuario {
 
+	private String nombre;
+	private String apellido;
+	
 	private String codigo;
 	private String usuario;
 	private String pass;
@@ -15,6 +18,28 @@ public class Usuario {
 	public boolean isEstado() {
 		return estado;
 	}
+
+	
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public String getApellido() {
+		return apellido;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;

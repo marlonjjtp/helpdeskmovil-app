@@ -2,6 +2,7 @@ package com.appmayuda.puente;
 
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -24,7 +25,7 @@ public class Puente {
 		try {
 			AsyncTask_Logueo task = new AsyncTask_Logueo();
 			ClaseGlobalURL global = (ClaseGlobalURL) ac.getApplication();
-			task.setDatos(context, global.getURL_logue());
+			task.setDatos(context, global.getUrl_logeo());
 			task.execute(usuario);
 			return task.get();
 		}catch (Exception e){
@@ -34,20 +35,34 @@ public class Puente {
 	
 	}
 	
+	/**
+	 * 
+	 * @param usuario objeto usuario con los datos de usuario y password
+	 * @param ac un activity desde donde se hace la consulta
+	 *
+	 * @return null si los datos del usuario son incorrectos o
+	 * Usuario con los datos completos si los datos son correctos
+	 */
 	public Usuario loguarse(Usuario usuario,Activity ac){
 		try {
 			String nousuario = "no existe el usuario";
 			AsyncTask_Logueo task = new AsyncTask_Logueo();
 			ClaseGlobalURL global = (ClaseGlobalURL) ac.getApplication();
-			task.setDatos(context, global.getURL_logue());
+			task.setDatos(context, global.getUrl_logeo());
 			task.execute(usuario);
 			String respuesta = task.get();
 			if (respuesta.equals(nousuario)){
 				return null;
 			}else{
-				JSONObject json = new JSONObject(respuesta);
-				usuario.setCodigo(json.getString("codigo"));
 				
+				JSONArray arreglojson = new JSONArray(respuesta);
+				JSONObject json = (JSONObject) arreglojson.get(0);
+				//JSONObject json = new JSONObject(respuesta);
+				usuario.setCodigo(json.getString("id_usuario"));
+				usuario.setTipo_usuario(json.getString("tipo"));
+				usuario.setNombre(json.getString("nombre"));
+				usuario.setApellido(json.getString("apellido"));
+				usuario.setEstado(true);
 				return usuario;
 			}
 			

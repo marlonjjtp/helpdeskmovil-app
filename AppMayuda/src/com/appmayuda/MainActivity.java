@@ -30,13 +30,32 @@ public class MainActivity extends ActionBarActivity {
 		String pass = txt_password.getText().toString();
 		us.setPass(pass);
 		us.setUsuario(usuario);
-		String respuesta = obj.loguearse(us, this);
-		if(respuesta.equals("falso")){
-			Toast.makeText(this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
-		}else{
-			
+		Usuario nus = obj.loguarse(us,this);
+		if (nus!=null){
+			Toast.makeText(this,"acceso permitido", Toast.LENGTH_SHORT).show();
+			loginPermitido(nus);
+		}else {
+			Toast.makeText(this,"usuario/contraseña incorrecto", Toast.LENGTH_SHORT).show();
 		}
 		
+	}
+	
+	/**
+	 * Compara el tipo de usario e inicia el activity que le corresponde
+	 * @param usuario
+	 */
+	private void loginPermitido(Usuario usuario) {
+		Intent intent = null;
+		if (usuario.getTipo_usuario().equals("HELPDESK")){
+			
+		}else if (usuario.getTipo_usuario().equals("USUARIO")){
+			
+		}else if (usuario.getTipo_usuario().equals("AVANZADO")){
+			
+		}else if (usuario.getTipo_usuario().equals("ADMINISTRADOR")){
+			
+		}
+		startActivity(intent);
 	}
 
 }
