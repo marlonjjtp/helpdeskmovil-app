@@ -2,6 +2,8 @@ package com.appmayuda;
 
 import com.appmayuda.objetos.Usuario;
 import com.appmayuda.puente.Puente;
+import com.appmayuda.util.parser.Parser;
+
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,11 +47,19 @@ public class MainActivity extends ActionBarActivity {
 	 * @param usuario
 	 */
 	private void loginPermitido(Usuario usuario) {
-		Intent intent = null;
+		Intent intent = new Intent();
+		Bundle bundle = Parser.parseBundle(usuario);
+//		bundle.putString("id_usuario",usuario.getCodigo());
+//		bundle.putString("nombre", usuario.getNombre());
+//		bundle.putString("apellidos",usuario.getApellido());
+//		bundle.putString("usuario", usuario.getUsuario());
+//		bundle.putString("password", usuario.getPass());
+//		bundle.putString("tipo", usuario.getTipo_usuario());
+		
 		if (usuario.getTipo_usuario().equals("HELPDESK")){
-			
+			intent.setClass(this,Activity_FRM_Helpdesk.class);
 		}else if (usuario.getTipo_usuario().equals("USUARIO")){
-			
+			intent.setClass(this,Activity_FRM_Usuario.class);
 		}else if (usuario.getTipo_usuario().equals("AVANZADO")){
 			
 		}else if (usuario.getTipo_usuario().equals("ADMINISTRADOR")){

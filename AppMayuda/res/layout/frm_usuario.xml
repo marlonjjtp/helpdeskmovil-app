@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="@drawable/fondo" >
+    
+    <TextView 
+            android:text="Datos"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borde_blanco"
+        android:padding="10dp">
+              
+        
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                  <TextView android:id="@+id/frm_usuario_lbl_nombre"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="65"
+                      android:textColor="@android:color/white"
+                      android:text="Usuario:"/>
+                  <TextView android:id="@+id/frm_usuario_tv_nombre"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="35"
+                      android:textColor="@android:color/white"
+                      android:text=""/>
+        </LinearLayout>
+          
+        
+    </LinearLayout>
+    
+			<FrameLayout
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_margin="20dp" />
+    
+           <Button android:id="@+id/frm_usuario_btn_registrar_ticket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar Ticket"/>  
+
+</LinearLayout>
