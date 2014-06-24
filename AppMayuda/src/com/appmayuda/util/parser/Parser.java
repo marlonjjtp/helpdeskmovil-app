@@ -1,6 +1,9 @@
 package com.appmayuda.util.parser;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +18,14 @@ import com.appmayuda.objetos.Usuario;
 
 public class Parser {
 
+	private static Date parseDate(String cadena) throws ParseException{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		java.util.Date jdate =  format.parse(cadena);
+		Date date = new Date(jdate.getTime());
+		return date;
+	}
 	
-	public static List<Ticket> parseTickets(String cadena) throws JSONException{
+	public static List<Ticket> parseTickets(String cadena) throws JSONException, ParseException{
 		
 		JSONArray jsonarray = new JSONArray(cadena);
 		List<Ticket> tickets = new ArrayList<Ticket>(jsonarray.length());
@@ -24,8 +33,9 @@ public class Parser {
 			JSONObject jsonobject = jsonarray.getJSONObject(i);
 			Ticket ticket = new Ticket();
 			ticket.setNumero(jsonobject.getInt("numero"));
-			long time = java.util.Date.parse(jsonobject.getString("fecha_registro"));
-			ticket.setFecha_registro(new Date(time));
+			//long time = java.util.Date.parse(jsonobject.getString("fecha_registro"));
+			//ticket.setFecha_registro(new Date(time));
+			ticket.setFecha_registro(parseDate(jsonobject.getString("fecha_registro")));
 			ticket.setNombre_usuario_solicitante(jsonobject.getString("apellido")+" "+jsonobject.getString("nombre"));
 			ticket.setEstado(jsonobject.getString("estado"));
 			ticket.setPrioridad(jsonobject.getString("prioridad"));

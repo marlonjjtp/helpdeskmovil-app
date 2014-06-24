@@ -1,6 +1,7 @@
 package com.appmayuda.datos;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 import org.json.JSONException;
@@ -36,6 +37,9 @@ public class AsyncTask_TicketsHelpDesk extends
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

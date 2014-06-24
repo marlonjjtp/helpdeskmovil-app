@@ -1,6 +1,7 @@
 package com.appmayuda.puente;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,6 +11,8 @@ import android.content.Context;
 
 import com.appmayuda.ClaseGlobalURL;
 import com.appmayuda.datos.AsyncTask_Logueo;
+import com.appmayuda.datos.AsyncTask_TicketsHelpDesk;
+import com.appmayuda.datos.AsyncTask_TicketsUsuario;
 import com.appmayuda.objetos.Ticket;
 import com.appmayuda.objetos.Usuario;
 
@@ -71,6 +74,18 @@ public class Puente {
 			return null;
 		}
 		
+	}
+	
+	public List<Ticket> listaTicketsHelpDesk(String url) throws InterruptedException, ExecutionException{
+		AsyncTask_TicketsHelpDesk task = new AsyncTask_TicketsHelpDesk(url);
+		task.execute();
+		return  task.get();
+	}
+	
+	public List<Ticket> listaTicketUsuario(String url, String codigo_usuario) throws InterruptedException, ExecutionException{
+		AsyncTask_TicketsUsuario task = new AsyncTask_TicketsUsuario(url);
+		task.execute(codigo_usuario);
+		return task.get();
 	}
 	
 	public String marcarComoSolucionado(int numeroTicket){

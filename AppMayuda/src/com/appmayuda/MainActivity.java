@@ -7,6 +7,8 @@ import com.appmayuda.util.parser.Parser;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -68,4 +70,29 @@ public class MainActivity extends ActionBarActivity {
 		startActivity(intent);
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+		//return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.main_to_frm_usuario:
+			startActivity(new Intent(this,Activity_FRM_Usuario.class));
+			return true;
+		case R.id.main_to_helpdesk:
+			startActivity(new Intent(this,Activity_FRM_Helpdesk.class));
+			return true;
+		default:
+			return true;
+		}
+		//return super.onOptionsItemSelected(item);
+	}
+
+	
+	
+	
 }

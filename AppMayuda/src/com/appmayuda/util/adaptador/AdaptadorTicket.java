@@ -44,7 +44,8 @@ public class AdaptadorTicket extends BaseAdapter {
 	public View getView(int position, View contentView, ViewGroup group) {
 		if (contentView==null){
 			LayoutInflater inflater = (LayoutInflater) group.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			contentView = inflater.inflate(R.layout.item_view_ticket, group);
+			//contentView = inflater.inflate(R.layout.item_view_ticket, group);
+			contentView = inflater.inflate(R.layout.item_view_ticket, null);
 			
 			TextView tv_numero_ticket,tv_usuario_solicitante,tv_fecha,tv_estado;
 			
@@ -53,7 +54,7 @@ public class AdaptadorTicket extends BaseAdapter {
 			tv_fecha = (TextView) contentView.findViewById(R.id.item_view_ticket_tv_fecha);
 			tv_estado = (TextView) contentView.findViewById(R.id.item_view_ticket_tv_estado);
 			
-			tv_numero_ticket.setText(tickets.get(position).getNumero());
+			tv_numero_ticket.setText(tickets.get(position).getNumero()+"");
 			tv_usuario_solicitante.setText(tickets.get(position).getNombre_usuario_solicitante());
 			tv_fecha.setText(tickets.get(position).getFecha_registro().toString());
 			tv_estado.setText(tickets.get(position).getEstado());

@@ -1,6 +1,7 @@
 package com.appmayuda.datos;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -45,6 +46,7 @@ public class ConexionHTTP {
 	 * @throws IOException
 	 */
 	public void ejecutarConexion() throws ClientProtocolException, IOException{
+		datos = new ArrayList<NameValuePair>();
 		httpclient = new DefaultHttpClient();
 		httppost = new HttpPost(URL);
 		httpentity = new UrlEncodedFormEntity(datos);
