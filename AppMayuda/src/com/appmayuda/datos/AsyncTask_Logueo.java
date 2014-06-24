@@ -39,7 +39,8 @@ public class AsyncTask_Logueo extends AsyncTask<Usuario,Void,String> {
 			HttpPost httpost = new HttpPost(url);
 			List<NameValuePair> datos = new ArrayList<>();
 			datos.add(new BasicNameValuePair("usuario",usuario[0].getUsuario()));
-			datos.add(new BasicNameValuePair("password",usuario[0].getPass()));
+			//datos.add(new BasicNameValuePair("password",usuario[0].getPass()));
+			datos.add(new BasicNameValuePair("pass",usuario[0].getPass()));
 			HttpEntity entity = new UrlEncodedFormEntity(datos);
 			httpost.setEntity(entity);
 	

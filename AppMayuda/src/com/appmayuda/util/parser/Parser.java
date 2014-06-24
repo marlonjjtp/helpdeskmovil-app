@@ -1,11 +1,41 @@
 package com.appmayuda.util.parser;
 
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.os.Bundle;
 
+import com.appmayuda.objetos.Ticket;
 import com.appmayuda.objetos.Usuario;
 
 public class Parser {
 
+	
+	public static List<Ticket> parseTickets(String cadena) throws JSONException{
+		
+		JSONArray jsonarray = new JSONArray(cadena);
+		List<Ticket> tickets = new ArrayList<Ticket>(jsonarray.length());
+		for (int i=0;i<jsonarray.length();i++){
+			JSONObject jsonobject = jsonarray.getJSONObject(i);
+			Ticket ticket = new Ticket();
+			ticket.setNumero(jsonobject.getInt("numero"));
+			long time = java.util.Date.parse(jsonobject.getString("fecha_registro"));
+			ticket.setFecha_registro(new Date(time));
+			ticket.setNombre_usuario_solicitante(jsonobject.getString("apellido")+" "+jsonobject.getString("nombre"));
+			ticket.setEstado(jsonobject.getString("estado"));
+			ticket.setPrioridad(jsonobject.getString("prioridad"));
+			tickets.add(ticket);
+		}
+		return tickets;
+	}
+	
+	
+	
 	public static Usuario parseUsuario(Bundle bundle){
 		Usuario usuario = new Usuario();
 		usuario.setCodigo(bundle.getString("id_usuario"));
