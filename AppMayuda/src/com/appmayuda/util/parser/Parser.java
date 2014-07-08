@@ -113,6 +113,12 @@ public class Parser {
 		
 	}
 	
+	public static String fechaFormateada(Date date){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String fecha_string = format.format(date);
+		return fecha_string;
+	}
+	
 	private static long getLong(Date date){
 		if (date == null){
 			return -1;

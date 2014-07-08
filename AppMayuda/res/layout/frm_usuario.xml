@@ -47,6 +47,7 @@
            <Button android:id="@+id/frm_usuario_btn_registrar_ticket"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrar Ticket"/>  
+            android:text="Registrar Ticket"
+            android:onClick="registrarTicket"/>  
 
 </LinearLayout>

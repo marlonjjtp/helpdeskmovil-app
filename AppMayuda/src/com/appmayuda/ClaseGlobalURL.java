@@ -10,8 +10,28 @@ public class ClaseGlobalURL extends Application {
 	//private String url_logeo = "/nuevo_moviles/android/logueo.php";
 	private String url_mostrarTickets_HelpDesk = "/appmesa/android/mostrarTickets_Help.php";
 	private String url_mostrarTickes_Usuario = "/appmesa/android/mostrarTickets.php";
+	private String url_registroTicket = "/appmesa/android/registrarTicket.php";
+	private String url_iniciarAtencion = "/appmesa/android/iniciarAtencion.php";
+	private String url_solucionTicket = "/appmesa/android/SolucionTicket.php";
 	
 	
+	
+	
+
+	public String getUrl_registroTicket() {
+		return url+url_registroTicket;
+	}
+
+
+	public String getUrl_iniciarAtencion() {
+		return url+url_iniciarAtencion;
+	}
+
+
+	public String getUrl_solucionTicket() {
+		return url+url_solucionTicket;
+	}
+
 
 	public String getUrl() {
 		return url;

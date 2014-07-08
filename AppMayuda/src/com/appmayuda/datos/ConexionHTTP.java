@@ -20,7 +20,7 @@ public class ConexionHTTP {
 	private String URL;
 	private HttpClient httpclient;
 	private HttpPost httppost;
-	private List<NameValuePair> datos;
+	private List<NameValuePair> datos = new ArrayList<NameValuePair>();
 	private HttpEntity httpentity;
 	private HttpEntity httpentityres;
 	private HttpResponse httpresponse;
@@ -46,7 +46,7 @@ public class ConexionHTTP {
 	 * @throws IOException
 	 */
 	public void ejecutarConexion() throws ClientProtocolException, IOException{
-		datos = new ArrayList<NameValuePair>();
+		//datos = new ArrayList<NameValuePair>();
 		httpclient = new DefaultHttpClient();
 		httppost = new HttpPost(URL);
 		httpentity = new UrlEncodedFormEntity(datos);

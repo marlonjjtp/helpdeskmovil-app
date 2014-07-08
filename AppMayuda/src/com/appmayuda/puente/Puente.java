@@ -11,6 +11,8 @@ import android.content.Context;
 
 import com.appmayuda.ClaseGlobalURL;
 import com.appmayuda.datos.AsyncTask_Logueo;
+import com.appmayuda.datos.AsyncTask_MarcarSolucionado;
+import com.appmayuda.datos.AsyncTask_RegistroTicekt;
 import com.appmayuda.datos.AsyncTask_TicketsHelpDesk;
 import com.appmayuda.datos.AsyncTask_TicketsUsuario;
 import com.appmayuda.objetos.Ticket;
@@ -88,9 +90,10 @@ public class Puente {
 		return task.get();
 	}
 	
-	public String marcarComoSolucionado(int numeroTicket){
-		
-		return "";
+	public boolean marcarComoSolucionado(int numeroTicket,Activity ac) throws InterruptedException, ExecutionException{
+		ClaseGlobalURL urls = (ClaseGlobalURL) ac.getApplication();
+		AsyncTask_MarcarSolucionado task = new AsyncTask_MarcarSolucionado(urls.getUrl_solucionTicket());
+		return task.get();
 	}
 	
 	public Ticket ticket(int numeroTicket){
@@ -101,6 +104,14 @@ public class Puente {
 	public List<Ticket> listaTickets(){
 		
 		return null;
+	}
+	
+	public boolean registrarTicket(Ticket ticket, Activity ac) throws InterruptedException, ExecutionException{
+		ClaseGlobalURL urls = (ClaseGlobalURL) ac.getApplication();
+		System.out.println("iniciando registrarTicket() en Parser");
+		AsyncTask_RegistroTicekt task = new AsyncTask_RegistroTicekt(urls.getUrl_registroTicket());
+		task.execute(ticket);
+		return task.get();
 	}
 	
 	

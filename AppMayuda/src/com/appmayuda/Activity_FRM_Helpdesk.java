@@ -35,9 +35,9 @@ public class Activity_FRM_Helpdesk extends Activity {
 		ClaseGlobalURL global = (ClaseGlobalURL) getApplication();
 		String url = global.getUrl_mostrarTickets_HelpDesk();
 		try {
-			adapter_ticket = new AdaptadorTicket(puente.listaTicketsHelpDesk(url));
+			adapter_ticket = new AdaptadorTicket( puente.listaTicketsHelpDesk(url));
 			lv_tickets.setAdapter(adapter_ticket);
-			
+			lv_tickets.setDividerHeight(5);
 			lv_tickets.setOnItemClickListener(new OnItemClickListener() {
 
 				@Override

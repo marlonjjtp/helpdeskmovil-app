@@ -2,6 +2,7 @@ package com.appmayuda;
 
 import com.appmayuda.objetos.Usuario;
 import com.appmayuda.puente.Puente;
+import com.appmayuda.sesion.DatosSesion;
 import com.appmayuda.util.parser.Parser;
 
 import android.support.v7.app.ActionBarActivity;
@@ -36,6 +37,7 @@ public class MainActivity extends ActionBarActivity {
 		us.setUsuario(usuario);
 		Usuario nus = obj.loguarse(us,this);
 		if (nus!=null){
+			DatosSesion.usuario = nus;
 			Toast.makeText(this,"acceso permitido", Toast.LENGTH_SHORT).show();
 			loginPermitido(nus);
 		}else {
@@ -67,6 +69,7 @@ public class MainActivity extends ActionBarActivity {
 		}else if (usuario.getTipo_usuario().equals("ADMINISTRADOR")){
 			
 		}
+		DatosSesion.usuario = usuario;
 		startActivity(intent);
 	}
 
