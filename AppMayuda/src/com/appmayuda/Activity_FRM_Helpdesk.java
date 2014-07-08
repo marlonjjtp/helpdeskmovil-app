@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.appmayuda.objetos.Ticket;
 import com.appmayuda.objetos.Usuario;
 import com.appmayuda.puente.Puente;
+import com.appmayuda.sesion.DatosSesion;
 import com.appmayuda.util.adaptador.AdaptadorTicket;
 import com.appmayuda.util.parser.Parser;
 
@@ -62,8 +63,9 @@ public class Activity_FRM_Helpdesk extends Activity {
 		System.out.println("iniciando cargarActivityDetalle() "+posicion);
 		Intent intent = new Intent(Activity_FRM_Helpdesk.this,Activity_TicketDetalle.class);
 		Ticket ticket = (Ticket) lv_tickets.getItemAtPosition(posicion);
-		Bundle bundle = Parser.parseBundle((Ticket) lv_tickets.getItemAtPosition(posicion));
-		intent.putExtra("ticket",bundle);
+//		Bundle bundle = Parser.parseBundle((Ticket) lv_tickets.getItemAtPosition(posicion));
+//		intent.putExtra("ticket",bundle);
+		DatosSesion.ticket = ticket;
 		startActivityForResult(intent, 1);
 	}
 	
