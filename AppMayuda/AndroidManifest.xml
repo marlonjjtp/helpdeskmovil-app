@@ -34,7 +34,10 @@
             android:label="HelpDesk">
             
         </activity>
-        
+        <activity android:name="com.appmayuda.Activity_TicketDetalle"
+            android:label="Detalle">
+            
+        </activity>
         
     </application>
 

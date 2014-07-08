@@ -5,11 +5,11 @@ import android.app.Application;
 public class ClaseGlobalURL extends Application {
 
 	//private String url = "http://192.168.1.3";
-	private String url = "http://tecnest.net";
-	private String url_logeo = "/ucvmovil/appmesa/android/logueo.php"; 
+	private String url = "http://192.168.1.20";
+	private String url_logeo = "/appmesa/android/logueo.php"; 
 	//private String url_logeo = "/nuevo_moviles/android/logueo.php";
-	private String url_mostrarTickets_HelpDesk = "/ucvmovil/appmesa/android/mostrarTickets_Help.php";
-	private String url_mostrarTickes_Usuario = "/ucvmovil/appmesa/android/mostrarTickets.php";
+	private String url_mostrarTickets_HelpDesk = "/appmesa/android/mostrarTickets_Help.php";
+	private String url_mostrarTickes_Usuario = "/appmesa/android/mostrarTickets.php";
 	
 	
 

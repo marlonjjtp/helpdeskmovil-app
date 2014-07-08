@@ -23,8 +23,6 @@ public class AsyncTask_TicketsHelpDesk extends
 	public AsyncTask_TicketsHelpDesk(String URL){
 		this.conexion = new ConexionHTTP(URL);
 	}
-	
-	
 	@Override
 	protected List<Ticket> doInBackground(Void... params) {
 		
@@ -32,6 +30,7 @@ public class AsyncTask_TicketsHelpDesk extends
 			conexion.ejecutarConexion();
 			String respuesta = conexion.getRespuesa();
 			tickets = Parser.parseTickets(respuesta);
+			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -43,7 +42,8 @@ public class AsyncTask_TicketsHelpDesk extends
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
+			
+		System.out.println("tickets.size() "+tickets.size());
 		return tickets;
 	}
 

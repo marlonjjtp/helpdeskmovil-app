@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.appmayuda.objetos.Usuario;
+import com.appmayuda.util.parser.Parser;
 
 public class Activity_RegistroTicket extends Activity {
 
@@ -22,14 +23,13 @@ public class Activity_RegistroTicket extends Activity {
 	public void registrar(View view){
 		
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.frm_registrar_ticket);
+		usuario = Parser.parseUsuario(savedInstanceState);
 		cargarControles();
 	}
-
-	
-	
+		
 }
